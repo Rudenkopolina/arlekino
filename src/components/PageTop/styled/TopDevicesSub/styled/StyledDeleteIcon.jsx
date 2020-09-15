@@ -8,6 +8,7 @@ const StyledDeleteIcon = styled.div`
   cursor: pointer;
   margin-right: 5px;
   position: relative;
+  top: 2px;
   background: url(${DeleteIcon}) center center no-repeat;
 `
 export default StyledDeleteIcon

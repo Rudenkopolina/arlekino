@@ -1,10 +1,7 @@
-import React from 'react';
 import styled from 'styled-components';
 import { Input } from 'antd';
 
-const StyledInput = styled(
-	({ ...props }) => <Input {...props} />
-)`
+const StyledInput = styled(Input)`
 	&& {
 		width: 178px;
 		height: 32px;
@@ -16,6 +13,7 @@ const StyledInput = styled(
 		border-radius: 2px 0 0 2px;
 		padding: 6px 11px;
 		color: var(--mainblack);
+		overflow: hidden;
 		
 		&:focus {
 			border: solid 1px var(--borderInput);

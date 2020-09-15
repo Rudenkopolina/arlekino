@@ -22,7 +22,7 @@ const PromoAside = () => {
 
       <Styled.BgTxt><FormattedMessage id='PromoAside.Txt3' /></Styled.BgTxt>
 
-      <Link to=''>
+      <Link to='/'>
         <FormattedMessage id='PromoAside.Href' />
       </Link>
 

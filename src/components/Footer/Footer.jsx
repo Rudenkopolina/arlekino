@@ -8,13 +8,13 @@ import AcceptBlock from './styled/StyledAcceptBlock'
 import PayPalIcon from '../../assets/img/paypal1.svg'
 import PayAccept2 from '../../assets/img/acceptpay2.svg'
 
-const Footer = () => {
+const Footer = ({isMobile}) => {
   return (
-    <StyledFooter>
+    <StyledFooter isMobile={isMobile}>
       <Container>
 
         <FooterContent>
-          <Copyright><FormattedMessage id='Copyright' /></Copyright>
+          <Copyright><FormattedMessage id='Footer.Copyright' /></Copyright>
 
           <AcceptBlock>
             <p><FormattedMessage id='Footer.Accept' /></p>

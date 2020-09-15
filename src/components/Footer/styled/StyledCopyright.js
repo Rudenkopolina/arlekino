@@ -1,9 +1,9 @@
-import styled from 'styled-components'
+import styled  from 'styled-components'
 
-const StyledFooter = styled.div`
+const Copyright = styled.p`
   	color: var(--grayFooter);
   	font-family: var(--fontGilroyRegular);
-	font-size: 15px;
+	  font-size: 15px;
 `
 
-export default StyledFooter
+export default Copyright

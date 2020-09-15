@@ -1,11 +1,19 @@
 import styled from 'styled-components'
-import ExpandIcon from '../../../../../../../assets/img/arrowdown.svg'
+import { DEVICE } from '../../../../../../../constants/media'
 
 const StyledAsideLinkList = styled.div`
 	width: 100%;
 	padding: 0 22px 0 17px;
 	margin-top: 9px;
 	margin-bottom: 15px;
+	
+	 @media (max-width: 767px) {
+       padding: 0 12px 0 17px;
+   }
+  
+   @media (min-width: 768px) and (max-width: 1249px) {
+       padding: 0 15px 0 16px;
+   }
 	.ant-collapse {
 	  background-color: transparent;
     border: none;
@@ -23,6 +31,11 @@ const StyledAsideLinkList = styled.div`
 	.ant-collapse > .ant-collapse-item {
     border: none;
     background: transparent;
+    
+    @media ${DEVICE.tabletDevices1250} {
+      text-align: left;
+    }
+    
 	}
 	.ant-collapse-content {
     overflow: hidden;
@@ -40,33 +53,23 @@ const StyledAsideLinkList = styled.div`
           margin-bottom: 4px;
           display: inline-block;
           width: 285px;
+          @media ${DEVICE.tabletDevices1250} {
+             width: calc(100% - 30px)
+          }
           text-overflow: ellipsis;
           white-space: nowrap;
           overflow: hidden;
       }
   }
-  .ant-collapse > .ant-collapse-item.ant-collapse-item-active > .ant-collapse-header::after {
+  .ant-collapse > .ant-collapse-item.ant-collapse-item-active > .ant-collapse-header i {
       transform: rotate(180deg);
   }
 .ant-collapse > .ant-collapse-item > .ant-collapse-header::after {
     content: '';
-    position: absolute;
-    right: 0;
-    left: 171px;
-    top: 9px;
-    width: 9px;
-    height: 6px;
-    background: url(${ExpandIcon}) center center no-repeat;
-    background-size: contain;
+    display: none;
 }
 .ant-collapse > .ant-collapse-item > .ant-collapse-header .ant-collapse-arrow svg {
   display: none;
-}
-.ant-collapse > .ant-collapse-item:nth-child(2) > .ant-collapse-header::after {
-    left: 190px;
-}
-.ant-collapse > .ant-collapse-item:last-child > .ant-collapse-header::after {
-    left: 93px;
 }
  
 `

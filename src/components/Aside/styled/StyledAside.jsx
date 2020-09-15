@@ -1,10 +1,21 @@
 import styled from 'styled-components'
+import { DEVICE } from '../../../constants/media';
 
 const StyledAside = styled.div`
     width: 353px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column; 
+    
+    @media ${DEVICE.wideScreen} {
+      width: 420px;
+    }
+    
+    @media ${DEVICE.tabletDevices1250} {
+        width: 100%;
+        display: none;
+    }
+  
     & > aside {
       width: 100%;
       background: #FFFFFF;

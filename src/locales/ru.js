@@ -1,3 +1,4 @@
+
 export default {
   // Main Page
 
@@ -14,6 +15,8 @@ export default {
   "TopPanel.txt": 'пополнить',
   "PageTop.Title1": 'Личный ',
   "PageTop.Title2": ' кабинет',
+  "PageTop.SubtitleMobile": 'Настройки просмотра',
+
 
   //Devices and Subscriprions
   "TopDevicesSub.Title": 'Мои устройства и подписки',
@@ -58,6 +61,7 @@ export default {
   //Optinal panel
   'OptionalPanel.Txt': 'Выбрано',
   'OptionalPanel.Button': 'Далее',
+  'OptionalPanel.TxtGeneral': 'Устройств',
 
   //PromoAside
   'PromoAside.Txt1': 'Подарок ждет!',
@@ -76,13 +80,15 @@ export default {
   'AsideServers.Add': 'Подобрать',
   'AsideOttId.Txt': 'Выберите устройство',
 
-  'AsideLinkList.Item1': 'Прямые ссылки (http и https)',
-  'AsideLinkList.Item2': 'Анонимные ссылки (http и https)',
-  'AsideLinkList.Item3': 'Источники EPG',
+  'AsideLinkList.Item1': 'Прямые ссылки (http и https) {icon}',
+  'AsideLinkList.Item2': 'Анонимные ссылки (http и https) {icon}',
+  'AsideLinkList.Item3': 'Источники EPG {icon}',
   'AsideLinkList.Item4': 'Picon',
 
   'DevicesBlock.Title': 'устройства',
 
+  'SiderMobile.Close': 'Выйти',
+  'SiderMobile.Test': 'Тестовый доступ',
 
   //tooltips
   'Tooltip.dateTopBlock': 'с 23.03.20 08:32 по 05.05.21 08:32',
@@ -95,7 +101,30 @@ export default {
   'Modal.Add.Txt': ' Создать новое устройство?',
   'Modal.Add.TxtForm': 'Название устройства ',
 
+  'Modal.AddPlaylist.Txt': ' Создать новый плейлист? ',
+  'Modal.AddPlaylist.TxtForm': 'Название плейлиста',
 
+  'Modal.Copy.Title': 'Ссылка скопирована!',
+  'Modal.Copy.Txt': 'Можно смело вставлять ее в устройство!',
+  'Modal.Server.Title': 'Поменять сервер для',
+  'Modal.Server.Txt': 'Выберите сервер',
+  'Modal.Server.Btn': 'Изменить',
+
+  //Table
+  'Table.Items.Subscribe': 'Купить подписку',
+  'Table.Items.Settings': ' Настройки ',
+  'Table.Items.Comment': ' Введите комментарий',
+
+  'Table.DropDown.Item1': 'Купить подписку',
+  'Table.DropDown.Item2': 'Запросить тестовый период',
+  'Table.DropDown.ThTop': 'Выберите',
+
+  'Table.DropDown.Item3': 'Запросить тестовый период',
+  'Table.DropDown.Item4': 'Поменять сервер',
+  'Table.DropDown.Item5': 'Автопродление актив. подписок',
+
+  'Table.UserType.Name1': 'Cталкер',
+  'Table.UserType.Name2': 'Плейлист',
   //form user
 
   'FormUser.Login': 'Логин',
@@ -190,6 +219,6 @@ export default {
   'ResetPassword.ConfirmPassword': 'Confirm New password',
 
   // copyright
-  Copyright: 'Copyright © 2011-2020',
+  'Footer.Copyright': 'Copyright © 2011-2020',
   'Footer.Accept': 'Мы принимаем:'
 }

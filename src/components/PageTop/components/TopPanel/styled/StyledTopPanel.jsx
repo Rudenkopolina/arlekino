@@ -1,10 +1,15 @@
 import styled from 'styled-components'
+import { DEVICE } from '../../../../../constants/media'
 
 const StyledTopPanel = styled.nav`
     display: flex;
     width: 353px; 
     align-items: center;
-    
+    margin-bottom: 2px;
+
+    @media ${DEVICE.wideScreen} {
+        width: 420px;
+    }
     .ant-badge-dot {
       width: 10px;
       height: 10px;

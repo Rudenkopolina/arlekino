@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { DEVICE } from '../../../constants/media'
+
 
 const StyledFooter = styled.div`
   color: var(--grayFooter);
@@ -6,6 +8,11 @@ const StyledFooter = styled.div`
 	font-size: 15px;
 	display: flex;
 	align-items: center;
+	padding-right: 100px;
+	
+	@media ${DEVICE.tabletDevices1250} {
+     display: none;
+  } 
 	
 	p {
 		padding-right: 35px;

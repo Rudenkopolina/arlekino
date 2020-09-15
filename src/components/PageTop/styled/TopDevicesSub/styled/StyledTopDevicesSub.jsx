@@ -40,11 +40,12 @@ const TopDevicesSub = styled.div`
 
 const Content = styled.div`
   background: var(--white);
-  margin: 10px 8px 0 18px;
+  margin: 7px 8px 0 18px;
   width: 315px;
   height: 95px;
   overflow-x: hidden;
   overflow-y: scroll;
+  padding-top: 3px;
 `
 export default {
   Content,

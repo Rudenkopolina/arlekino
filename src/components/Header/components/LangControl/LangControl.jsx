@@ -1,5 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
+import StyledLangControl from './styled/StyledLangControl'
+import StyledLangRadioGroup from './styled/StyledLangRadioGroup'
+import StyledLangRadioBtn from './styled/StyledLangRadioBtn'
 
 const onLanguageSelect = event => {
   window.localStorage.setItem('lang', event.target.value)
@@ -15,43 +17,3 @@ const LangControl = () => (
 )
 
 export default LangControl
-
-const StyledLangControl = styled.div` 
-	display: flex;
-  position: relative;
-  margin: 0 1rem;
-  padding-right: 1rem;
-	&:after {
-		content: '';
-		width: 1px;
-		height: 23px;
-		position: absolute;
-		top: 0;
-		right: -1px;
-		background: var(--headerBorder);
-	}
-`
-
-const StyledLangRadioBtn = styled.div`
-  font-family: var( --fontGilroySemiBold);
-	font-size: 14px;
-	line-height: 24px;
-	letter-spacing: 0.16px;
-	color: var(--white);
-	text-transform: uppercase;
-	cursor:pointer;
-	transition: all 0.3s ease-in;
-	
-		&:hover {
-			 color: var(--orange);
-		}
-`
-
-const StyledLangRadioGroup = styled.div`
-    {
-        width: 100%;
-        display: flex;
-        border: none;
-        color: var(--hrefColor);
-    }
-`

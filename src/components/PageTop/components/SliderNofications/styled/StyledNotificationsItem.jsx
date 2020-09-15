@@ -1,9 +1,13 @@
 import styled from 'styled-components'
 import IconClose from './../../../../../assets/img/close-notification-slider.svg'
+import { DEVICE } from '../../../../../constants/media'
 
 const Item = styled.div`
   padding: 13px 17px 13px 23px;
   height: 143px;
+  @media ${DEVICE.tabletDevices1250} {
+    height: 182px;
+  }
   position:relative;
 `
 
@@ -16,7 +20,7 @@ const Title = styled.div`
   color: #000000;
   width: 100%;
   position: relative;
-  margin-bottom: 9px;
+  margin-bottom: 11px;
   padding-left:  ${({ type }) => ((type === 'warning')? '72px;' :'0')}; 
 `
 
@@ -24,6 +28,20 @@ const Txt = styled.div`
   font-family: var(--fontGilroyRegular);
   font-size: 12px;
   line-height: 17px; 
+   @media ${DEVICE.tabletDevices1250} {
+    font-size: 13px;
+  }
+  &>div {
+   
+  }
+  p {
+      font-family: var(--fontGilroyRegular);
+      font-size: 12px;
+      line-height: 17px; 
+       @media ${DEVICE.tabletDevices1250} {
+        font-size: 13px;
+      }
+  }
 `
 
 const More = styled.div`
@@ -32,6 +50,20 @@ const More = styled.div`
   line-height: 14px; 
   cursor:pointer;
   color: var(--orange);
+  display: block;
+  margin-top: 15px;
+  cursor: pointer;
+  z-index: 1;
+  
+   @media (min-width: 1250px) {
+        position: absolute;
+        left: 24px;
+        bottom: 13px;
+    }
+    @media (min-width: 768px) and (max-width: 1249px) {
+      
+    }
+      
 `
 
 const BottomPanel = styled.div`
@@ -40,10 +72,14 @@ const BottomPanel = styled.div`
   left: 0;
   bottom: 12px;
   width: 100%;
-  justify-content: space-between;
   align-items: center;
   margin-top: 22px;
   padding: 0 17px 0 23px;
+  justify-content: flex-end;
+  
+  @media ${DEVICE.tabletDevices1250} {
+    bottom: 18px;
+  }
 `
 
 const Date = styled.div`

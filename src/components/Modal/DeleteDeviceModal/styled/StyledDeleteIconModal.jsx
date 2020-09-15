@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import React from 'react';
 import Delete from '../../../../assets/img/deleteIconModal.svg'
 
 const StyledDeleteIconModal = styled.i`

@@ -22,4 +22,4 @@ sagaMiddleware.run(rootSaga)
 
 export default store
 
-console.log(store.getState()) //
+// console.log(store.getState()) //

@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import IconPlayer from '../../../../../assets/img/onlineplayer.svg'
 
 const Player = styled.div`
   display: flex;

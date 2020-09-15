@@ -7,5 +7,6 @@ const StyledAcceptIcon = styled.div`
   height: 18px;
   cursor: pointer;
   background: url(${AcceptIcon}) center center no-repeat;
+  background-size: cover;
 `
 export default StyledAcceptIcon

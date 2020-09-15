@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import Search from '../../../../../assets/img/search.svg'
 import { Select  } from 'antd'
-
+import { DEVICE } from '../../../../../constants/media'
 
 const StyledSelect = styled(Select)`
+  
   &:before {
     position: absolute;
     width: 275px;
@@ -14,7 +15,10 @@ const StyledSelect = styled(Select)`
     content: '';
     z-index: 22;
   }
-
+  .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+      background-color: var(--mainblue);
+      color: var(--white);
+  }
   &.ant-select-focus {
    
         .ant-select-selection-placeholder {
@@ -39,6 +43,10 @@ const StyledSelect = styled(Select)`
       }
       .ant-select-selection-item {
         height: 40px;
+       
+          @media ${DEVICE.tabletDevices1250} {
+               line-height: 32px;
+          }
         padding-left: 50px;
         padding-top: 2px;
         box-shadow: none;
@@ -68,6 +76,11 @@ const StyledSelect = styled(Select)`
        }
       .ant-select-dropdown {
         box-shadow: none;
+        
+        
+        @media  (max-width: 1249px) {
+          top: 40px !important;
+        }
       }
       &.ant-select-focus .ant-select-selection-placeholder {
         color: transparent !important;
