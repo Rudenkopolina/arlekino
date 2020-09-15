@@ -9,12 +9,13 @@ const StyledInput = styled(
 		background: var(--white);
 		font-family: var(--fontGilroyRegular);
 		font-size: 13px;
-		border: none;
-		box-sizing: border-box;
+		border: 1px solid transparent;
 		border-radius: 0;
+		line-height: 1.4;
+	
 		padding: 0 11px 2px 0;
 		width: 180px;
-		color: var(--mainblack);
+		color: var(--gray);
 		background: transparent;
 		cursor:pointer;
 		height: 25px;
@@ -22,12 +23,12 @@ const StyledInput = styled(
 		&:read-only {
 			opacity: 0.9; 
 			cursor: auto;
-			position: relative;
-			top: -3px;
+			color: var(--mainblack);
 		}
 		&[readonly] {
     	opacity: 0.9; 
-    	cursor: auto; 
+    	cursor: auto;
+    	color: var(--mainblack);
 		}
 		&::placeholder {
 			color: var(--mainblack);
@@ -35,13 +36,14 @@ const StyledInput = styled(
 		
 		&:focus {
 			color: var(--mainblack);
+			border: 1px solid transparent;
 		}
 		&:hover {
-		   border: none;
+		   border: 1px solid transparent;
        }
         
 		.ant-input-focused {
-			border: none;
+			border: 1px solid transparent;
 		}
         
         &[disabled]{
@@ -50,6 +52,7 @@ const StyledInput = styled(
         
 			&[autofocus]::-moz-placeholder:focus {
 			  color: var(--mainblack)  !important;
+			  
 			}
 			
 			

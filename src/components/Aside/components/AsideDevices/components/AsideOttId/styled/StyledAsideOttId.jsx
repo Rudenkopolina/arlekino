@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import IconReload from '../../../../../../../assets/img/update/reload.svg';
 import IconCopy from '../../../../../../../assets/img/copyicon.svg';
+import { DEVICE } from '../../../../../../../constants/media'
 
 const StyledAsideOttId = styled.div`
 	display: flex;
@@ -8,15 +9,24 @@ const StyledAsideOttId = styled.div`
 	height: 45px;
 	align-items: center;
 	justify-content: space-between;
-	border-bottom: 1px solid var(--panelBorderGray);
+	border: 1px solid var(--panelBorderGray);
 	padding: 0 22px 0 17px;
 	cursor: pointer;
-	
+	@media ${DEVICE.tabletDevices1250} {
+    border-bottom: none;
+  }
+   @media (max-width: 767px) {
+       padding: 0 13px 0 17px;
+   }
+  
+   @media (min-width: 768px) and (max-width: 1249px) {
+       padding: 0 13px 0 16px;
+   }
 
-	
 	&>header {
 	  display: inline-flex;
 	  cursor: pointer;
+
 	   p {
 	    cursor: pointer;
 	    color: var(--gray);
@@ -39,8 +49,7 @@ const StyledAsideOttId = styled.div`
 	
 	&>div {
 	  display: inline-flex;
-	
-	
+
 		p {
       color: var(--mainblack);
       font-family: var(--fontGilroySemiBold);

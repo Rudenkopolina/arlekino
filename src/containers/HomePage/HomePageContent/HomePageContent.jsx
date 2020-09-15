@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Styled from './styled/StyledHomePageContent'
 import Container from '../../../components/styled/StyledContainer'
 import Aside from '../../../components/Aside/Aside'
@@ -10,8 +10,13 @@ import PromoAside from '../../../components/Aside/components/PromoAside/PromoAsi
 import AsideDevices from '../../../components/Aside/components/AsideDevices/AsideDevices'
 import AsidePlaylists from '../../../components/Aside/components/AsidePlaylists/AsidePlaylists'
 import AsideServers from '../../../components/Aside/components/AsideServers/AsideServers'
-
+// <MyDevicesBlock />
 const HomePageContent = () => {
+
+  const [isVisibleMenuDevice, setVisibilityMenuDevice ] = useState(false);
+  const collapseMenuDevices = () => {
+    setVisibilityMenuDevice(!isVisibleMenuDevice);
+  }; //visibility for dropdown with  searchdevices
 
   return (
     <>
@@ -21,13 +26,18 @@ const HomePageContent = () => {
             <Steps/>
             <Intro/>
             <MyDevicesBlock />
-            <OptionalPanel  />
+            <OptionalPanel view='table' />
+            { /*view newdealer or table */}
+
           </Styled.PageContent>
 
           <Aside>
             <PromoAside/>
             <aside>
-              <AsideDevices />
+              <AsideDevices
+                isVisibleMenuDevice={isVisibleMenuDevice}
+                collapseMenuDevices={collapseMenuDevices}
+              />
               <AsidePlaylists/>
               <AsideServers/>
             </aside>

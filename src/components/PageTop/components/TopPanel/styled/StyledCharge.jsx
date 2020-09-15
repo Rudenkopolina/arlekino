@@ -1,7 +1,12 @@
 import styled from 'styled-components'
 
 const StyledCharge = styled.div`
-  padding-left: 16px;
+  padding-left: 25px;
+  position: relative;
+  top: 1px;
+  @media (min-width: 1600px) {
+  
+  } 
   a {
     font-family: var(--fontGilroySemiBold);
     font-size: 14px;

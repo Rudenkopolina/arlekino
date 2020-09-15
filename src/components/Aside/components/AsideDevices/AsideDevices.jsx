@@ -4,33 +4,42 @@ import StyledAsideDevices from './styled/StyledAsideDevices'
 import AsideOttId from './components/AsideOttId/AsideOttId'
 import AsideLinkList from './components/AsideLinkList/AsideLinkList'
 import AsideSelectDevice from '../../../AsideSelectDevice/AsideSelectDevice'
+import AddDeviceModal from '../../../Modal/AddDeviceModal/AddDeviceModal'
+import StyledMobileContent from './styled/StyledMobileContent'
 
-const AsideDevices = () =>{
-  const [nameDevice, setName] = useState("НЕ ВЫБРАНО");
-  const [isVisible, setVisibility ] = useState(false);
+const AsideDevices = ({isVisibleMenuDevice,collapseMenuDevices}) => {
+  const [nameDevice, setName] = useState("Cпальня");
 
-  const toggleVisibility = () => {
-    setVisibility(!isVisible);
+  const [ isVisibleAddModal, setVisibleAddModal ] = useState(false);
+  const toggleVisibleAddModal = () => {
+    setVisibleAddModal(!isVisibleAddModal)
   };
 
   const onSelect = (val, option) => {
     setName(option.value);
-    toggleVisibility();
+    collapseMenuDevices();
   };
 
+
   return (
-    <StyledAsideDevices>
+    <StyledAsideDevices isMobile={true}>
 
       <header>
         <h3><FormattedMessage id='AsideDevices.Title' /></h3>
+
         <AsideSelectDevice nameDevice={nameDevice}
-                           isVisible={isVisible}
+                           isVisible={isVisibleMenuDevice}
                            onSelect={onSelect}
-                           toggleVisibility={toggleVisibility}/>
+                           toggleVisibility={collapseMenuDevices}/>
+        <i onClick={toggleVisibleAddModal}></i>
       </header>
 
-      <AsideOttId nameDevice={nameDevice} />
-      <AsideLinkList />
+      <StyledMobileContent>
+        <AsideOttId nameDevice={nameDevice} />
+        <AsideLinkList/>
+      </StyledMobileContent>
+
+      <AddDeviceModal isVisible={isVisibleAddModal} toggleVisibility={toggleVisibleAddModal} />
 
     </StyledAsideDevices>
   )

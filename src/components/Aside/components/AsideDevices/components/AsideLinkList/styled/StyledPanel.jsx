@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import IconCopy from '../../../../../../../assets/img/copyicon.svg'
+import React from 'react'
+import ExpandIcon from '../../../../../../../assets/img/arrowdown.svg'
 import { Collapse } from 'antd';
 const { Panel } = Collapse;
 
-
-const StyledPanel = styled(Panel)`
+const StyledPanel = styled(({ key, ...props }) => <Panel id={key} key={key}{...props} />)`
       
 	  border-radius: 0;
 	  box-shadow: none;
@@ -23,15 +23,20 @@ const StyledPanel = styled(Panel)`
         line-height: 12px;
         color: var(--gray);
     }
+    .ant-collapse-item-active {
+        i {
+          transform: rotate(180deg);
+        }
+    }
     i {
         cursor: pointer;
-        width: 16px;
-        height: 18px;
         position: relative;
-        top: -3px;
+        top: 0;
+        width: 9px;
+        height: 6px;
         display: inline-block;
-        margin-left: 10px;
-        background: url(${(IconCopy)}) center center no-repeat; 
+        margin-left: 12px;
+        background: url(${ExpandIcon}) center center no-repeat;
         background-size: contain;
     }
     

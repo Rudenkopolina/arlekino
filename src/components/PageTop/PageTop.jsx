@@ -5,7 +5,6 @@ import TopPanel from './components/TopPanel/TopPanel'
 import TopDevicesSub from './styled/TopDevicesSub/TopDevicesSub'
 import SliderNotifications from './components/SliderNofications/SliderNotifications'
 
-
 // <TopDevicesSub/><SliderNotifications/>
 const PageTop = () => {
 
@@ -15,6 +14,12 @@ const PageTop = () => {
           <FormattedMessage id='PageTop.Title1' />
           <span><FormattedMessage id='PageTop.Title2' /></span>
         </Styled.Title>
+
+      <Styled.SubTitle>
+        <FormattedMessage id='PageTop.SubtitleMobile' />
+      </Styled.SubTitle>
+
+      {/*<SliderNotifications/>*/}
 
       <Styled.Aside>
         <TopPanel />

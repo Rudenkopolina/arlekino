@@ -1,12 +1,31 @@
 import styled from 'styled-components'
+import { DEVICE } from '../../../../../constants/media'
 
 const StyledViewPanel = styled.div`
 	position: absolute;
 	right: 44px;
-	top: 53px;
+	top: 40px;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+	
+	@media ${DEVICE.mobileDevices} {
+    display: flex;
+    width: 100%;
+    position: static;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 45px;
+    margin-right: 35px;
+  }
+  
+  @media (min-width: 480px) and (max-width: 767px) {
+    padding-right: 35px;
+  }
+  @media (min-width: 768px) and (max-width: 1249px) {
+    padding-right: 15px;
+    right: 0;
+  }
 	
 	&>div {
 	  width: 26px;

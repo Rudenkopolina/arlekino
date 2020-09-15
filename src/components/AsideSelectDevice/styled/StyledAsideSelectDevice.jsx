@@ -11,6 +11,11 @@ const StyledAsideSelectDevice = styled.div`
     text-transform: uppercase;
     cursor: pointer;
     
+     @media (min-width: 768px) and (max-width: 1249px) {
+        position: relative;
+        left: -2px;
+      }
+    
     i {
        cursor: pointer;
        display: inline-block;

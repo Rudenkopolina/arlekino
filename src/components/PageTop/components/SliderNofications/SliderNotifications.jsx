@@ -4,13 +4,10 @@ import StyledSliderNotifications from './styled/StyledSliderNotifications'
 import { Carousel } from 'antd';
 import Styled from './styled/StyledNotificationsItem'
 
-function onChange(a, b, c) {
-}
-
 const SliderNotifications = () => (
   <StyledSliderNotifications>
 
-    <Carousel fade arrows dots={false} afterChange={onChange}>
+    <Carousel fade arrows infinite={false} autoplay={false} dots={false}>
       <div>
         <Styled.Item>
           <Styled.Close />
@@ -20,13 +17,15 @@ const SliderNotifications = () => (
           </Styled.Title>
 
           <Styled.Txt>
-            <FormattedMessage id='SliderNotifications.Txt1' />
-          </Styled.Txt>
-
-          <Styled.BottomPanel>
+            <p><FormattedMessage id='SliderNotifications.Txt1' /></p>
+            <div>
               <Styled.More>
                 <FormattedMessage id='SliderNotifications.More' />
               </Styled.More>
+            </div>
+          </Styled.Txt>
+
+          <Styled.BottomPanel>
 
             <Styled.Date>
               <FormattedMessage id='SliderNotifications.Date' />
@@ -44,13 +43,14 @@ const SliderNotifications = () => (
 
           <Styled.Txt>
             <FormattedMessage id='SliderNotifications.Txt1' />
+            <div>
+              <Styled.More>
+                <FormattedMessage id='SliderNotifications.More' />
+              </Styled.More>
+            </div>
           </Styled.Txt>
 
           <Styled.BottomPanel>
-            <Styled.More>
-              <FormattedMessage id='SliderNotifications.More' />
-            </Styled.More>
-
             <Styled.Date>
               <FormattedMessage id='SliderNotifications.Date' />
             </Styled.Date>
@@ -67,13 +67,14 @@ const SliderNotifications = () => (
 
           <Styled.Txt>
             <FormattedMessage id='SliderNotifications.Txt1' />
+            <div>
+              <Styled.More>
+                <FormattedMessage id='SliderNotifications.More' />
+              </Styled.More>
+            </div>
           </Styled.Txt>
 
           <Styled.BottomPanel>
-            <Styled.More>
-              <FormattedMessage id='SliderNotifications.More' />
-            </Styled.More>
-
             <Styled.Date>
               <FormattedMessage id='SliderNotifications.Date' />
             </Styled.Date>

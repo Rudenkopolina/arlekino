@@ -1,5 +1,7 @@
 import styled from 'styled-components'
-// import { Radio } from 'antd';
+import { DEVICE } from '../../../../../constants/media'
+
+
 
 const StyledLangRadioBtn = styled.div`
   font-family: var( --fontGilroySemiBold);
@@ -10,6 +12,11 @@ const StyledLangRadioBtn = styled.div`
 	text-transform: uppercase;
 	cursor:pointer;
 	transition: all 0.3s ease-in;
+	
+	@media ${DEVICE.tabletDevices1250} {
+      color: var(--mainblue);
+      text-align: center;
+  }
 	
 		&:hover {
 			 color: var(--orange);

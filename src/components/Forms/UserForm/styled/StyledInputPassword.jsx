@@ -1,10 +1,9 @@
-import React from 'react';
 import styled from 'styled-components';
 import { Input } from 'antd';
+import { DEVICE } from '../../../../constants/media'
 
-const StyledInput = styled(
-	({ ...props }) => <Input.Password {...props} />
-)`
+
+const StyledInput = styled(Input.Password)`
 	&& {
 		width: 167px;
 		height: 32px;
@@ -17,18 +16,36 @@ const StyledInput = styled(
 		padding: 8px 11px;
 		margin-right: 9px;
 		color: var(--mainblack);
-		box-shadow: none;
+		@media ${DEVICE.tabletDevices1250} {
+			min-width: 178px;
+			width: calc(100% - 125px);
+			height: 36px;
+			font-size: 16px;
+		}
+			@media (max-width: 359px) {
+            width: 147px;
+            min-width: 148px;
+       }
 		
+		.ant-input-affix-wrapper>input.ant-input {
+				line-height: 16px;
+		}
 		.ant-input-suffix {
 				display: none !important;
 		}
 		
+		
+		&:read-only {
+			opacity: 0.5;  
+		}
+		&[readonly] {
+    	opacity: 0.5;  
+		}
+		
 		&:focus {
 			border: solid 1px var(--borderInput);
-			box-shadow: none;
 		}
 		&:hover {
-			box-shadow: none;
 		   border: 1px solid var(--borderInput);
        }
         
@@ -59,6 +76,11 @@ const StyledInput = styled(
 				line-height: 15px;
 				color: var(--gray);
 				width: 60px;
+				@media ${DEVICE.tabletDevices1250} {
+					width: 70px;
+					font-size: 16px;
+				}
+				
 				font-family: var(--fontGilroyRegular);
 			}
 			.ant-form-item-label > label {
@@ -69,7 +91,27 @@ const StyledInput = styled(
 				color: var(--gray);
 				width: 60px;
 				font-family: var(--fontGilroyRegular);
+				
+				@media ${DEVICE.tabletDevices1250} {
+					width: 70px;
+					font-size: 16px;
+				}
 			}
 	}
-`
+`;
+
 export default StyledInput;
+
+// const ItemWrapper = styled.div`
+//   position: relative;
+// `;
+// const CommentItem = React.forwardRef(
+// 	({ ...props}, ref) => {
+// 		return (
+// 			<ItemWrapper>
+// 				<StyledInput {...props} ref={ref} />
+// 			</ItemWrapper>
+// 		);
+// 	}
+// );
+// export default CommentItem;

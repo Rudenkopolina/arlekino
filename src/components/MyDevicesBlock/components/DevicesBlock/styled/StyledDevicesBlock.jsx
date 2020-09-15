@@ -1,11 +1,29 @@
 import styled from 'styled-components'
 import ShowDevice from '../../../../../assets/img/plusdevices.svg'
+import { DEVICE } from '../../../../../constants/media'
 
 const StyledDevicesBlock = styled.div`
 	display: flex;
 	width: 346px;
   flex-direction: column;
   
+  @media (max-width: 359px) {
+   	width: 100%;
+  }
+  
+   @media ${DEVICE.wideScreen} {
+      margin-left: 300px;
+      margin-top: 30px;
+    }
+  @media ${DEVICE.tabletDevices1250} {
+    margin-top: 40px;
+  }
+   @media (min-width: 360px) and (max-width: 574px) {
+        width: 100%; 
+    }
+    @media (min-width: 575px) and (max-width: 767px) {
+        width: 100%; 
+    }
 
 	header {
 	  display: flex;

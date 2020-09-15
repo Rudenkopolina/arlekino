@@ -4,6 +4,11 @@ const Table = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  &>div{
+     width: 100%;
+     display: flex;
+     justify-content: space-between;
+  }
 `
 
 const TableLeft = styled.div`
@@ -12,6 +17,7 @@ const TableLeft = styled.div`
   width: 186px;
   padding-right: 20px;
   position: relative;
+  top: -3px;
   border-right: 1px solid var(--panelBorderGray);  
   
   p {
@@ -47,9 +53,15 @@ const TableRight = styled.div`
   }
   
 `
-
+const TableItem = styled.div` 
+    span {
+      color: ${({ isSubscribe }) => (isSubscribe ? 'var(--gray) !important;' : 'var(--orange) !important;')}; 
+    }
+  
+`
 export default {
   Table,
+  TableItem,
   TableLeft,
   TableRight
 }

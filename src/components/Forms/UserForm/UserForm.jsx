@@ -1,27 +1,30 @@
-import React , { useState } from 'react'
+import React, { Component, createRef,  } from 'react'
 import { injectIntl } from 'react-intl'
 import StyledInput from './styled/StyledInput'
-import StyledInputPassword from './styled/StyledInputPassword'
 import { Form } from 'antd'
-import StyledUserFormPanel from './styled/StyledUserFormPanel'
-import StyledEditIcon from './styled/StyledEditIcon'
 import StyledForm from './styled/StyledForm'
-import StyledAcceptIcon from './styled/StyledAcceptIcon'
+import ControlEditableWrapper from '../ControlWrapper/ControlWrapper'
 
-const UserForm = ({
-  handleSubmit,
-  formName,
-  intl
-}) => {
-  const [ isEditable, setEditable ] = useState(false);
-  const toggleEditable = () => {
-    setEditable(!isEditable);
-  };
-  const [form] = Form.useForm();
+class UserForm extends Component {
+
+  constructor(props) {
+    super(props);
+    this.inputRef= createRef()
+    this.state =
+      {
+        isEditable: false, // Check here to configure the default column
+      };
+    this.formRef = React.createRef();
+  }
+
+
+render () {
+
+  const { intl } = this.props
 
   return (
     <StyledForm>
-      <Form form={form} layout="horizontal">
+      <Form layout="horizontal">
         <Form.Item
           label={intl.formatMessage({id: 'FormUser.Login'})}
           rules={[
@@ -31,25 +34,13 @@ const UserForm = ({
             },
           ]}
         >
+
           <StyledInput
             name="login"
-            defaultValue={'valeriy_p'}
-            readOnly={ !isEditable }
+            defaultValue={ 'valeriy' }
+            id="loginName"
+            readOnly={ true }
           />
-          <StyledUserFormPanel editable={true}>
-            {(!isEditable)?
-              (
-                <StyledEditIcon onClick={toggleEditable} />
-              )
-              :
-              (
-                <>
-                  <StyledAcceptIcon onClick={toggleEditable}></StyledAcceptIcon>
-                  <i onClick={toggleEditable}></i>
-                </>
-              )
-            }
-          </StyledUserFormPanel>
 
         </Form.Item>
 
@@ -62,13 +53,13 @@ const UserForm = ({
             },
           ]}
         >
-
-          <StyledInputPassword
-            value={'valeriy_p'}
+          <ControlEditableWrapper
+            defaultValue={ 'password' }
             name="pass"
-            readOnly={ true }
-
+            id="password"
+            type="password"
           />
+
         </Form.Item>
 
         <Form.Item
@@ -80,16 +71,19 @@ const UserForm = ({
             },
           ]}
         >
-          <StyledInput
-            value={'valeriy@mail.ru'}
+
+          <ControlEditableWrapper
+            defaultValue={'valeriy@mail.ru'}
             placeholder={'valeriy@mail.ru'}
             name="mail"
-            readOnly={ true }
-
           />
+
         </Form.Item>
       </Form>
     </StyledForm>
   )
+}
+
+
 };
 export default injectIntl(UserForm);

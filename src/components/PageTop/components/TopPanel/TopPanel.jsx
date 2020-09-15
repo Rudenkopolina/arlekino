@@ -23,7 +23,7 @@ const TopPanel = () => (
         </StyledWallet>
 
         <StyledCharge>
-          <a href={'#'}><FormattedMessage id='TopPanel.txt' /></a>
+          <a href="/"><FormattedMessage id='TopPanel.txt' /></a>
         </StyledCharge>
   </StyledTopPanel>
 )

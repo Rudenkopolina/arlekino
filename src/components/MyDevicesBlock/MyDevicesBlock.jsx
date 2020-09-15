@@ -3,6 +3,11 @@ import Styled from './styled/StyledMyDevicesBlock'
 import { FormattedMessage, injectIntl } from 'react-intl'
 import ViewPanel from './components/ViewPanel/ViewPanel'
 import DevicesBlock from './components/DevicesBlock/DevicesBlock'
+// import TableNewDealer from '../TableNewDealer/TableNewDealer'
+
+// <Styled.Img />
+// <TableNewDealer/>
+//  <DevicesBlock />
 
 const MyDevices = () => {
 
@@ -18,7 +23,8 @@ const MyDevices = () => {
 
       <ViewPanel />
       <DevicesBlock />
-      <Styled.Img />
+
+      {/*<TableNewDealer/>*/}
 
     </Styled.Block>
   )

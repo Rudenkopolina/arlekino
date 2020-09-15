@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { DEVICE } from '../../../../../constants/media'
+import LogoMobile from '../../../../../assets/img/Arlekino.tvmobile.svg'
 
 const StyledLogo = styled.div`
 	display: flex;
@@ -9,10 +11,25 @@ const StyledLogo = styled.div`
 	justify-content: center;
 	align-items: center;
 	cursor: pointer;
+	background: #FFFFFF;
+	
 	img {
-		display: block;
-		
+	    display: block;
+	    @media ${DEVICE.tabletDevices1250} {
+	        display: none;
+	    }
 	}
+	
+	@media ${DEVICE.tabletDevices1250} {
+	
+	  width: 88px;
+    height: 37px;
+    position: relative;
+    top: 7px;
+    left: 20px;
+    background: url(${(LogoMobile)}) center center no-repeat;
+    background-size: contain;
+  }
 `
 
 export default StyledLogo

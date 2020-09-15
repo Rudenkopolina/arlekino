@@ -29,29 +29,32 @@ const servers = [
 
   }
 ]
-const AsideServers = () => (
-  <StyledAsideServers>
+const AsideServers = () =>{
 
-    <StyledAsideServersHeader>
-      <h3><FormattedMessage id='AsideServers.Title' /></h3>
-      <p><FormattedMessage id='AsideServers.Add' /></p>
-    </StyledAsideServersHeader>
+  return (
+    <StyledAsideServers>
 
-    <StyledAsideServersContent>
-      <StyledAsideServer>
-        {
-          servers.map(playlist => (
-            <StyledAsideServerItem key={playlist.name} >
-              <Checkbox />
-              <i></i>
-              <p>{ playlist.name }</p>
-            </StyledAsideServerItem>)
-          )
-        }
+      <StyledAsideServersHeader>
+        <h3><FormattedMessage id='AsideServers.Title' /></h3>
+        <p><FormattedMessage id='AsideServers.Add' /></p>
+      </StyledAsideServersHeader>
 
-      </StyledAsideServer>
-    </StyledAsideServersContent>
+      <StyledAsideServersContent>
+        <StyledAsideServer>
+          {
+            servers.map(playlist => (
+              <StyledAsideServerItem key={playlist.name} >
+                <Checkbox>
+                </Checkbox>
+                <p>{ playlist.name }</p>
+              </StyledAsideServerItem>)
+            )
+          }
 
-  </StyledAsideServers>
-)
+        </StyledAsideServer>
+      </StyledAsideServersContent>
+
+    </StyledAsideServers>
+  )
+}
 export default injectIntl(AsideServers)

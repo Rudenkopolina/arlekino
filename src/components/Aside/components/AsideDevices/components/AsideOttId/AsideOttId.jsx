@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FormattedMessage } from 'react-intl'
 import StyledAsideOttId from './styled/StyledAsideOttId'
-
+import CopyLinkModal from '../../../../../Modal/CopyLinkModal/CopyLinkModal'
 const AsideOttId = ({nameDevice}) => {
+
+  const [ isVisibleCopyModal, setVisibleCopyModal ] = useState(false);
+  const toggleVisibleCopyModal = () => {
+    setVisibleCopyModal(!isVisibleCopyModal)
+  };
 
   return (
     <StyledAsideOttId isOpacity={(nameDevice === 'НЕ ВЫБРАНО') ? true : false }>
@@ -20,8 +25,9 @@ const AsideOttId = ({nameDevice}) => {
             )
         }
 
-        <i></i>
+        <i onClick={toggleVisibleCopyModal}></i>
       </div>
+      <CopyLinkModal isVisible={isVisibleCopyModal} toggleVisibility={toggleVisibleCopyModal}/>
     </StyledAsideOttId>
   )
 }

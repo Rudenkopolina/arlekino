@@ -8,33 +8,46 @@ import StyledIconPanel from './styled/StyledIconPanel'
 import DeleteDeviceModal from '../../../Modal/DeleteDeviceModal/DeleteDeviceModal'
 import StyledTooltip from '../../../styled/StyledTooltip'
 import AddDeviceModal from '../../../Modal/AddDeviceModal/AddDeviceModal'
-import StyledInput from './styled/StyledInput'
-import axios from 'axios';
+import DropDownPicker from '../../components/DropDownPicker/DropDownPicker'
+import ControlEditableWrapper from '../../components/ControlWrapper/ControlWrapper'
+import StyledAcceptIcon from '../../components/ControlWrapper/styled/StyledAcceptIcon'
+import StyledInput from '../../components/ControlWrapper/styled/StyledInput'
 
 const devicesTest = [
   {
     name: "Телевизор на кухне",
-    date: "купить",
-    isSubscribe: false
+    date: "13.01.2020",
+    isSubscribe: false,
+    isEdit: true
   },
   {
-    name: "Детская",
-    date: "05.05.21",
-    isSubscribe: true
-  },
-  {
-    name: "Спальня",
-    date: "05.06.20",
-    isSubscribe: false
+    name: "Телевизор на кухне",
+    date: "13.01.2020",
+    isSubscribe: true,
+    isEdit: false
+
   }
+
 ]
 
-axios.get('/api/billing/groups/')
-    .then(res => {
-    const people = res.data;
-    this.setState(devicesTest);
-})
-
+//
+//   <div key={device.name} >
+//   <StyledTooltip
+// autoAdjustOverflow
+// arrowPointAtCenter
+// placement= 'topLeft'
+// title={<FormattedMessage id="Tooltip.dateTopBlock" />}>
+// <p>
+// {device.date}
+// </p>
+// </StyledTooltip>
+//
+// <StyledIconPanel>
+// <StyledEditIcon onClick={toggleEditable} />
+// <StyledDeleteIcon onClick={toggleVisibility} />
+// </StyledIconPanel>
+//
+// </div>
 
 const TopDevicesSub = () => {
   const [ isVisible, setVisibility ] = useState(false);
@@ -44,12 +57,11 @@ const TopDevicesSub = () => {
 
   const [ isEditable, setEditable ] = useState(false);
   const toggleEditable = () => {
-    setEditable(!isEditable)
+    setEditable(!isEditable);
+    document.getElementById('test').focus();
   };
 
-  const EditDevice = () => {
-    toggleEditable();
-  }
+
 
   const [ isVisibleAdd, setVisibilityAdd ] = useState(false);
   const toggleVisibilityAdd = () => {
@@ -67,54 +79,89 @@ const TopDevicesSub = () => {
       <Styled.Content>
 
         <DevicesSubTable.Table>
-          <DevicesSubTable.TableLeft>
-            {
-              devicesTest.map(device => (
-                <StyledInput
-                  key={device.date}
-                  defaultValue={ device.name }
-                  name="login"
-                  readOnly={ !isEditable }
-                />
-                )
-              )
-            }
-          </DevicesSubTable.TableLeft>
+          <div>
+            <DevicesSubTable.TableLeft>
+              {
 
-          <DevicesSubTable.TableRight>
-            {
-              devicesTest.map(device => (
-                <Fragment key={device.name}>
-                  {device.isSubscribe ? (
-                    <div key={device.name} >
-                      <StyledTooltip
-                        autoAdjustOverflow
-                        arrowPointAtCenter
-                        placement= 'topLeft'
-                        title={<FormattedMessage id="Tooltip.dateTopBlock" />}>
-                        <p>{ device.date }</p>
-                      </StyledTooltip>
-
-                      <StyledIconPanel>
-                        <StyledEditIcon />
-                        <StyledDeleteIcon onClick={toggleVisibility} />
-                      </StyledIconPanel>
-
-                    </div>
-                  ) : (
-                    <div key={device.name} >
-                      <p><span>{ device.date }</span></p>
-                      <StyledIconPanel>
-                        <StyledEditIcon />
-                        <StyledDeleteIcon onClick={toggleVisibility} />
-                      </StyledIconPanel>
-                    </div>
+                devicesTest.map(device => {
+                  if (device.isEdit) {
+                    return (
+                      <ControlEditableWrapper
+                        key={device.date}
+                        defaultValue={device.name}
+                        name={device.name}
+                        type="text"
+                        id="test"
+                        isEditable={isEditable}
+                      />
                     )
                   }
-                </Fragment>
-              ))
-            }
-          </DevicesSubTable.TableRight>
+                  else {
+                    return (
+                      <StyledInput
+                        name={device.name}
+                        defaultValue={device.name}
+                        readOnly
+                      />
+                    )
+                  }
+                }
+                )
+              }
+            </DevicesSubTable.TableLeft>
+
+            <DevicesSubTable.TableRight>
+              {
+                devicesTest.map(device => (
+                  <Fragment key={device.name}>
+                    {device.isEdit ? (
+                      <DevicesSubTable.TableItem isSubscribe={device.isSubscribe} key={device.name} >
+                        <DropDownPicker>
+                          <StyledTooltip
+                            autoAdjustOverflow
+                            arrowPointAtCenter
+                            placement= 'topLeft'
+                            title={<FormattedMessage id="Tooltip.dateTopBlock" />}>
+                            <p><span>{device.date}</span></p>
+                          </StyledTooltip>
+                        </DropDownPicker>
+
+                        <StyledIconPanel>
+                          {
+                            isEditable ?
+                              <StyledAcceptIcon onClick={toggleEditable} />
+
+                              :
+                              <StyledEditIcon onClick={toggleEditable} />
+                          }
+
+                          <StyledDeleteIcon onClick={toggleVisibility} />
+                        </StyledIconPanel>
+                      </DevicesSubTable.TableItem>
+                    ) : (
+                      <DevicesSubTable.TableItem isSubscribe={device.isSubscribe} key={device.name} >
+                        <DropDownPicker>
+                          <StyledTooltip
+                            autoAdjustOverflow
+                            arrowPointAtCenter
+                            placement= 'topLeft'
+                            title={<FormattedMessage id="Tooltip.dateTopBlock" />}>
+                            <p><span>{device.date}</span></p>
+                          </StyledTooltip>
+                        </DropDownPicker>
+
+                        <StyledIconPanel>
+                          <StyledEditIcon  />
+                          <StyledDeleteIcon onClick={toggleVisibility} />
+                        </StyledIconPanel>
+                      </DevicesSubTable.TableItem>
+                    )
+                    }
+                  </Fragment>
+                ))
+              }
+            </DevicesSubTable.TableRight>
+          </div>
         </DevicesSubTable.Table>
       </Styled.Content>
 
@@ -123,4 +170,4 @@ const TopDevicesSub = () => {
     </Styled.TopDevicesSub>
   )
 }
-export default injectIntl(TopDevicesSub );
+export default injectIntl(TopDevicesSub);
